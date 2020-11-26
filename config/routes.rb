@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :medical_records
+  resources :family_histories
   resources :notes
   resources :patients
   resources :patients do

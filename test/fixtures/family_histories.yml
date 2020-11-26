@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ans: false
+  family_cancer: false
+  family_breast_cancer: false
+  family_blood_disorder: false
+  family_sickle_cell: false
+  neurologic_problem: false
+  family_strok: false
+  cardiac_disorder: false
+  respiratory_disease: false
+  family_birth_defect: false
+  family_endocrine: false
+  patient: one
+
+two:
+  ans: false
+  family_cancer: false
+  family_breast_cancer: false
+  family_blood_disorder: false
+  family_sickle_cell: false
+  neurologic_problem: false
+  family_strok: false
+  cardiac_disorder: false
+  respiratory_disease: false
+  family_birth_defect: false
+  family_endocrine: false
+  patient: two

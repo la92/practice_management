@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Medical Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Aspirin</th>
+      <th>Codine</th>
+      <th>Penicillin</th>
+      <th>Local anesthesia</th>
+      <th>Acrylic</th>
+      <th>Latex</th>
+      <th>Aids</th>
+      <th>Alzhimers</th>
+      <th>Asthma</th>
+      <th>Blood disease</th>
+      <th>Cancer</th>
+      <th>Chest pains</th>
+      <th>Diabetes</th>
+      <th>Drug addiction</th>
+      <th>Injuries</th>
+      <th>Comments</th>
+      <th>Patient</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medical_records.each do |medical_record| %>
+      <tr>
+        <td><%= medical_record.aspirin %></td>
+        <td><%= medical_record.codine %></td>
+        <td><%= medical_record.penicillin %></td>
+        <td><%= medical_record.local_anesthesia %></td>
+        <td><%= medical_record.acrylic %></td>
+        <td><%= medical_record.latex %></td>
+        <td><%= medical_record.aids %></td>
+        <td><%= medical_record.alzhimers %></td>
+        <td><%= medical_record.asthma %></td>
+        <td><%= medical_record.blood_disease %></td>
+        <td><%= medical_record.cancer %></td>
+        <td><%= medical_record.chest_pains %></td>
+        <td><%= medical_record.diabetes %></td>
+        <td><%= medical_record.drug_addiction %></td>
+        <td><%= medical_record.injuries %></td>
+        <td><%= medical_record.comments %></td>
+        <td><%= medical_record.patient_id %></td>
+        <td><%= link_to 'Show', medical_record %></td>
+        <td><%= link_to 'Edit', edit_medical_record_path(medical_record) %></td>
+        <td><%= link_to 'Destroy', medical_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medical Record', new_medical_record_path %>

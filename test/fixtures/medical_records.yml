@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aspirin: false
+  codine: false
+  penicillin: false
+  local_anesthesia: false
+  acrylic: false
+  latex: false
+  aids: false
+  alzhimers: false
+  asthma: false
+  blood_disease: false
+  cancer: false
+  chest_pains: false
+  diabetes: false
+  drug_addiction: false
+  injuries: false
+  comments: MyText
+  patient: one
+
+two:
+  aspirin: false
+  codine: false
+  penicillin: false
+  local_anesthesia: false
+  acrylic: false
+  latex: false
+  aids: false
+  alzhimers: false
+  asthma: false
+  blood_disease: false
+  cancer: false
+  chest_pains: false
+  diabetes: false
+  drug_addiction: false
+  injuries: false
+  comments: MyText
+  patient: two

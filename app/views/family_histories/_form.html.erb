@@ -1,0 +1,77 @@
+<%= form_with(model: family_history, local: true) do |form| %>
+  <% if family_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(family_history.errors.count, "error") %> prohibited this family_history from being saved:</h2>
+
+      <ul>
+        <% family_history.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ans %>
+    <%= form.check_box :ans %>
+  </div>
+
+  <div class="field">
+    <%= form.label :family_cancer %>
+    <%= form.check_box :family_cancer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :family_breast_cancer %>
+    <%= form.check_box :family_breast_cancer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :family_blood_disorder %>
+    <%= form.check_box :family_blood_disorder %>
+  </div>
+
+  <div class="field">
+    <%= form.label :family_sickle_cell %>
+    <%= form.check_box :family_sickle_cell %>
+  </div>
+
+  <div class="field">
+    <%= form.label :neurologic_problem %>
+    <%= form.check_box :neurologic_problem %>
+  </div>
+
+  <div class="field">
+    <%= form.label :family_strok %>
+    <%= form.check_box :family_strok %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cardiac_disorder %>
+    <%= form.check_box :cardiac_disorder %>
+  </div>
+
+  <div class="field">
+    <%= form.label :respiratory_disease %>
+    <%= form.check_box :respiratory_disease %>
+  </div>
+
+  <div class="field">
+    <%= form.label :family_birth_defect %>
+    <%= form.check_box :family_birth_defect %>
+  </div>
+
+  <div class="field">
+    <%= form.label :family_endocrine %>
+    <%= form.check_box :family_endocrine %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.text_field :patient_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

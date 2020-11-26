@@ -1,0 +1,102 @@
+<%= form_with(model: medical_record, local: true) do |form| %>
+  <% if medical_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medical_record.errors.count, "error") %> prohibited this medical_record from being saved:</h2>
+
+      <ul>
+        <% medical_record.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :aspirin %>
+    <%= form.check_box :aspirin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codine %>
+    <%= form.check_box :codine %>
+  </div>
+
+  <div class="field">
+    <%= form.label :penicillin %>
+    <%= form.check_box :penicillin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :local_anesthesia %>
+    <%= form.check_box :local_anesthesia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :acrylic %>
+    <%= form.check_box :acrylic %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latex %>
+    <%= form.check_box :latex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aids %>
+    <%= form.check_box :aids %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alzhimers %>
+    <%= form.check_box :alzhimers %>
+  </div>
+
+  <div class="field">
+    <%= form.label :asthma %>
+    <%= form.check_box :asthma %>
+  </div>
+
+  <div class="field">
+    <%= form.label :blood_disease %>
+    <%= form.check_box :blood_disease %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cancer %>
+    <%= form.check_box :cancer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :chest_pains %>
+    <%= form.check_box :chest_pains %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diabetes %>
+    <%= form.check_box :diabetes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :drug_addiction %>
+    <%= form.check_box :drug_addiction %>
+  </div>
+
+  <div class="field">
+    <%= form.label :injuries %>
+    <%= form.check_box :injuries %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comments %>
+    <%= form.text_area :comments %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.text_field :patient_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

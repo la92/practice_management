@@ -1,0 +1,6 @@
+<h1>Editing Note</h1>
+
+<%= render 'form', note: @note %>
+
+<%= link_to 'Show', patient_note_path(@note.patient_id,@note), class:"btn btn-primary" %> |
+<%= link_to 'Back', patient_path, class:"btn btn-secondary" %>

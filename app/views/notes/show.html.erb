@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h1>Note for <%= @patient.first_name%> <%= @patient.last_name%></h1>
+<p  style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Title:</strong><br>
+  <%= @note.title %>
+</p>
+
+<p  style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Body:</strong><br>
+  <%= @note.body %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Patient ID:</strong><br>
+  <%= @note.patient_id %>
+</p>
+
+<%= link_to 'Edit', edit_patient_note_path(@note.patient_id, @note), class: "btn btn-success" %> |
+<%= link_to 'Back', patient_path, class:"btn btn-primary" %>

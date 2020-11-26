@@ -1,0 +1,107 @@
+<p id="notice"><%= notice %></p>
+<h1 style="text-align:center">Patient Information</h1>
+<div>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>First Name:</strong>
+  <%= @patient.first_name %>
+</p>
+
+<p style=" margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Middle Name:</strong>
+  <%= @patient.middle_name %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Last Name:</strong>
+  <%= @patient.last_name %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Date of Birth:</strong>
+  <%= @patient.dob %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Gender:</strong>
+  <%= @patient.sex %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Social Security Number:</strong>
+  <%= @patient.ssn %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Email:</strong>
+  <%= @patient.email %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Phone Number:</strong>
+  <%= @patient.phone_number %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Address Line 1:</strong>
+  <%= @patient.address_line1 %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Address Line 2:</strong>
+  <%= @patient.address_line2 %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>City:</strong>
+  <%= @patient.city %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>State:</strong>
+  <%= @patient.state %>
+</p>
+
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Zip code:</strong>
+  <%= @patient.zip_code %>
+</p>
+</div>
+<%= link_to 'Edit', edit_patient_path(@patient), class:"btn btn-success" %> |
+<%= link_to 'Back', patients_path, class:"btn btn-primary" %>
+<br>
+<br>
+<br>
+<div>
+  <h3>Notes for <%= @patient.first_name%> <%= @patient.last_name%></h3><br>
+  <table  class="table table-sm table-sm">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Note</th>
+        <th>Patient ID</th>
+        <th>Note Updated At</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @notes.each do |note| %>
+        <tr>
+          <td><%= note.title %></td>
+          <td><%= note.body %></td>
+          <td><%= note.patient_id %></td>
+          <td><%= note.updated_at%></td>
+          <td><%= link_to 'Show', patient_note_path(note.patient_id,note), class:"btn btn-primary" %></td>
+          <td><%= link_to 'Edit', edit_patient_note_path(note.patient_id,note), class:"btn btn-primary"%></td>
+          <td><%= link_to 'Destroy', patient_note_path(note.patient_id,note), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger"%></td>
+          <td><%= link_to 'New Note', new_patient_note_path(note.patient_id,note),class:"btn btn-success"%></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+
+  </div>

@@ -1,0 +1,92 @@
+<%= form_with(model: patient, local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+        <% patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container">
+  <form>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= form.label :first_name,  "First Name"%><br>
+      <%= form.text_field :first_name, required: true, autofocus: true %>
+
+    </div>
+
+  <div class="form-group col-md-4">
+      <%= form.label :middle_name, "Middle Name" %><br>
+      <%= form.text_field :middle_name, required: true, autofocus: true %>
+  </div>
+
+  <div class="form-group  col-md-4">
+    <%= form.label :last_name, "Last Name"%><br>
+    <%= form.text_field :last_name, required: true, autofocus: true%>
+  </div>
+</div>
+<div class="form-group">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= form.label :dob, "Date of Birth" %><br>
+      <%= form.text_field :dob, required: true%>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= form.label :sex, "Gender" %><br>
+    <%= form.text_field :sex, required: true%>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= form.label :ssn, "Social Security Number" %><br>
+    <%= form.text_field :ssn, required: true %>
+  </div>
+  </div>
+  <div class="from-group">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <%= form.label :email, "Email Address" %><br>
+        <%= form.text_field :email, required: true %>
+      </div>
+
+      <div class="form-group col-md-4">
+        <%= form.label :phone_number, "Phone Number" %><br>
+        <%= form.text_field :phone_number, required: true %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= form.label :address_line1, "Address Line 1" %><br>
+        <%= form.text_field :address_line1, required: true, placeholder: "123 Main Ave"%>
+      </div>
+
+      <div class="form-group col-md-4">
+        <%= form.label :address_line2, "Address Line 1" %><br>
+        <%= form.text_field :address_line2, required: true, placeholder: "9C" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <%= form.label :city, "City" %><br>
+          <%= form.text_field :city, required: true, placeholder: "" %>
+        </div>
+
+
+        <div class="form-group col-md-4">
+          <%= form.label :state, "State" %><br>
+          <%= form.select :state,['NJ','NY','PA', 'CT', 'FL'], required: true, placeholder: "State" %>
+        </div>
+
+        <div class="form-group col-md-4">
+          <%= form.label :zip_code, "Zip Code" %><br>
+          <%= form.number_field :zip_code, required: true, placeholder: "" %>
+        </div>
+      </div>
+  <div class="actions">
+    <button type="button" class="btn btn-success"><%= form.submit "Create Patient", class: "btn btn-success"%></button>
+  </div>
+  </div>
+<% end %>

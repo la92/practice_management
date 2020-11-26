@@ -1,0 +1,35 @@
+<%= form_with(model: [@patient,@note], local: true) do |form| %>
+  <% if note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+        <% note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container" style="border-radius:5px; padding:20px;">
+    <%= form.label :patient_id, "Patient ID" %><br>
+    <%= form.text_field :patient_id %>
+  </div>
+
+  <div class="container" style="border-radius:5px; padding:20px;">
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="container" style="border-radius:5px; padding:20px;">
+    <%= form.label :body, "Note" %><br>
+    <%= form.text_area :body %>
+  </div>
+
+
+<br>
+  <div class="actions">
+    <%= form.submit "Update Note", class:"btn btn-success" %>
+  </div>
+  <br>
+  <br>
+<% end %>

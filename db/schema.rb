@@ -10,7 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_230430) do
+ActiveRecord::Schema.define(version: 2020_11_26_221945) do
+
+  create_table "family_histories", force: :cascade do |t|
+    t.boolean "ans"
+    t.boolean "family_cancer"
+    t.boolean "family_breast_cancer"
+    t.boolean "family_blood_disorder"
+    t.boolean "family_sickle_cell"
+    t.boolean "neurologic_problem"
+    t.boolean "family_strok"
+    t.boolean "cardiac_disorder"
+    t.boolean "respiratory_disease"
+    t.boolean "family_birth_defect"
+    t.boolean "family_endocrine"
+    t.integer "patient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id"], name: "index_family_histories_on_patient_id"
+  end
+
+  create_table "medical_records", force: :cascade do |t|
+    t.boolean "aspirin"
+    t.boolean "codine"
+    t.boolean "penicillin"
+    t.boolean "local_anesthesia"
+    t.boolean "acrylic"
+    t.boolean "latex"
+    t.boolean "aids"
+    t.boolean "alzhimers"
+    t.boolean "asthma"
+    t.boolean "blood_disease"
+    t.boolean "cancer"
+    t.boolean "chest_pains"
+    t.boolean "diabetes"
+    t.boolean "drug_addiction"
+    t.boolean "injuries"
+    t.text "comments"
+    t.integer "patient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id"], name: "index_medical_records_on_patient_id"
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string "title"
@@ -39,5 +80,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_230430) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "family_histories", "patients"
+  add_foreign_key "medical_records", "patients"
   add_foreign_key "notes", "patients"
 end

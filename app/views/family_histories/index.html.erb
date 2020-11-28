@@ -2,21 +2,21 @@
 
 <h1>Family Histories</h1>
 
-<table>
+<table class="table table-sm table-light">
   <thead>
     <tr>
-      <th>Ans</th>
-      <th>Family cancer</th>
-      <th>Family breast cancer</th>
-      <th>Family blood disorder</th>
-      <th>Family sickle cell</th>
-      <th>Neurologic problem</th>
-      <th>Family strok</th>
-      <th>Cardiac disorder</th>
-      <th>Respiratory disease</th>
-      <th>Family birth defect</th>
-      <th>Family endocrine</th>
-      <th>Patient</th>
+      <th scope="col">Anesthesia Reaction</th>
+      <th scope="col" >Family Cancer</th>
+      <th scope="col">Family Breast Cancer</th>
+      <th scope="col">Family Blood Disorder</th>
+      <th scope="col">Family Sickle Cell Disorder</th>
+      <th scope="col">Neurologic Problem</th>
+      <th scope="col" >Family Stroke</th>
+      <th scope="col">Cardiac Disorder</th>
+      <th scope="col">Respiratory Disease</th>
+      <th scope="col">Family Birth Defect</th>
+      <th scope="col">Family Dndocrine</th>
+      <th scope="col">Patient ID: </th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -36,9 +36,9 @@
         <td><%= family_history.family_birth_defect %></td>
         <td><%= family_history.family_endocrine %></td>
         <td><%= family_history.patient_id %></td>
-        <td><%= link_to 'Show', family_history %></td>
-        <td><%= link_to 'Edit', edit_family_history_path(family_history) %></td>
-        <td><%= link_to 'Destroy', family_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', patient_family_history_path(family_history.patient_id, family_history), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_patient_family_history_path(family_history.patient_id, family_history), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', patient_family_history_path(family_history.patient_id,family_history), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -46,4 +46,4 @@
 
 <br>
 
-<%= link_to 'New Family History', new_family_history_path %>
+<%= link_to 'New Family History', new_patient_family_history_path, class:"btn btn-light" %>

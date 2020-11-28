@@ -2,5 +2,5 @@
 
 <%= render 'form', family_history: @family_history %>
 
-<%= link_to 'Show', @family_history %> |
-<%= link_to 'Back', family_histories_path %>
+<%= link_to 'Show', patient_family_history_path(family_history.patient_id,family_history), class:"btn btn-primary" %> |
+<%= link_to 'Back', patient_path, class:"btn btn-secondary"  %>

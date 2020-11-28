@@ -11,11 +11,16 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @notes = @patient.notes.all.order("created_at")
+    @medical_records = @patient.medical_records.all.order("created_at")
+    @family_histories = @patient.family_histories.all.order("created_at")
   end
 
   # GET /patients/new
   def new
     @patient = Patient.new
+    @notes = @patient.notes.new
+    @medical_records = @patient.medical_records.new
+    @family_histories = @patient.family_histories.new
   end
 
   # GET /patients/1/edit

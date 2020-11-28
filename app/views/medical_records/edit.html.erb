@@ -2,5 +2,5 @@
 
 <%= render 'form', medical_record: @medical_record %>
 
-<%= link_to 'Show', @medical_record %> |
-<%= link_to 'Back', medical_records_path %>
+<%= link_to 'Show', patient_medical_record_path(@medical_record.patient_id, @medical_record), class:"btn btn-primary" %> |
+<%= link_to 'Back', patient_path, class:"btn btn-secondary" %>

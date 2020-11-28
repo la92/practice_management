@@ -70,9 +70,10 @@
 <%= link_to 'Back', patients_path, class:"btn btn-primary" %>
 <br>
 <br>
-<br>
 <div>
   <h3>Notes for <%= @patient.first_name%> <%= @patient.last_name%></h3><br>
+  <br>
+
   <table  class="table table-sm table-sm">
     <thead>
       <tr>
@@ -83,8 +84,8 @@
         <th colspan="3"></th>
       </tr>
     </thead>
-
     <tbody>
+
       <% @notes.each do |note| %>
         <tr>
           <td><%= note.title %></td>
@@ -94,14 +95,197 @@
           <td><%= link_to 'Show', patient_note_path(note.patient_id,note), class:"btn btn-primary" %></td>
           <td><%= link_to 'Edit', edit_patient_note_path(note.patient_id,note), class:"btn btn-primary"%></td>
           <td><%= link_to 'Destroy', patient_note_path(note.patient_id,note), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger"%></td>
-          <td><%= link_to 'New Note', new_patient_note_path(note.patient_id,note),class:"btn btn-success"%></td>
 
         </tr>
       <% end %>
-    </tbody>
+      </tbody>
+
   </table>
+    <%= link_to 'New Note', new_patient_note_path(@patient),class:"btn btn-success"%>
 
   <br>
+</div>
+
+  <div id="accordion">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Medical History for <%= @patient.first_name%> <%= @patient.last_name%></button>
+
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card card-body">
+
+        <% @medical_records.each do |medical_record| %>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Aspirin:</strong>
+          <%= medical_record.aspirin %>
+        </p>
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Codine:</strong>
+          <%= medical_record.codine %>
+        </p>
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+            <strong>Penicillin</strong>
+            <%= medical_record.penicillin %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Local anesthesia:</strong>
+          <%= medical_record.local_anesthesia %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Acrylic:</strong>
+          <%= medical_record.acrylic %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Latex:</strong>
+          <%= medical_record.latex %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Aids:</strong>
+          <%= medical_record.aids %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Alzhimers:</strong>
+          <%= medical_record.alzhimers %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Asthma:</strong>
+          <%= medical_record.asthma %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Blood disease:</strong>
+          <%= medical_record.blood_disease %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Cancer:</strong>
+          <%= medical_record.cancer %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Chest pains:</strong>
+          <%= medical_record.chest_pains %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Diabetes:</strong>
+          <%= medical_record.diabetes %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Drug addiction:</strong>
+          <%= medical_record.drug_addiction %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Injuries:</strong>
+          <%= medical_record.injuries %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Comments:</strong>
+          <%= medical_record.comments %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Patient:</strong>
+          <%= medical_record.patient_id %>
+        </p>
 
 
+          <td><%= link_to 'Edit', edit_patient_medical_record_path(medical_record.patient_id, medical_record), class:"btn btn-success" %></td>
+          <td><%= link_to 'Show', patient_medical_record_path(medical_record.patient_id, medical_record), class:"btn btn-primary" %></td>
+          <td><%= link_to 'Destroy', patient_medical_record_path(medical_record.patient_id, medical_record), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+        <% end %>
+      </div>
+      <%= link_to 'Add Medical Record', new_patient_medical_record_path(@patient), class:"btn btn-light" %>
+    </div>
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          Family History for <%= @patient.first_name%> <%= @patient.last_name%></button>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card card-body">
+        <% @family_histories.each do |family_history| %>
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Anesthesia Reaction:</strong>
+          <%= family_history.ans %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Family Cancer:</strong>
+          <%= family_history.family_cancer %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Family Breast cancer:</strong>
+          <%= family_history.family_breast_cancer %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Family Blood Disorder:</strong>
+          <%= family_history.family_blood_disorder %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Family Sickle Cell Disorder:</strong>
+          <%= family_history.family_sickle_cell %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Neurologic Problem:</strong>
+          <%= family_history.neurologic_problem %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Family Stroke:</strong>
+          <%= family_history.family_strok %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Cardiac Disorder:</strong>
+          <%= family_history.cardiac_disorder %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Respiratory Disease:</strong>
+          <%= family_history.respiratory_disease %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Family Birth Defect:</strong>
+          <%= family_history.family_birth_defect %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Family Endocrine:</strong>
+          <%= family_history.family_endocrine %>
+        </p>
+
+        <p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+          <strong>Patient ID:</strong>
+          <%= family_history.patient_id %>
+        </p>
+
+        <%= link_to 'Edit', edit_patient_family_history_path(family_history.patient_id,family_history), class:"btn btn-success" %>
+        <%= link_to 'Show', patient_family_history_path(family_history.patient_id, family_history), class:"btn btn-primary" %>
+        <%= link_to 'Destroy', patient_family_history_path(family_history.patient_id, family_history), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        <% end %>
+      </div>
+      <%= link_to 'Add Family History', new_patient_family_history_path(@patient), class:"btn btn-light" %>
+    </div>
   </div>

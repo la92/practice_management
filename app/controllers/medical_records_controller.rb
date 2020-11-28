@@ -1,10 +1,11 @@
 class MedicalRecordsController < ApplicationController
   before_action :set_medical_record, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_patient
   # GET /medical_records
   # GET /medical_records.json
   def index
-    @medical_records = MedicalRecord.all
+    #@medical_records = MedicalRecord.all
+    @medical_records = @patient.medical_records.order("created_at")
   end
 
   # GET /medical_records/1
@@ -14,7 +15,8 @@ class MedicalRecordsController < ApplicationController
 
   # GET /medical_records/new
   def new
-    @medical_record = MedicalRecord.new
+    #@medical_record = MedicalRecord.new
+    @medical_record = @patient.medical_records.new
   end
 
   # GET /medical_records/1/edit
@@ -24,11 +26,11 @@ class MedicalRecordsController < ApplicationController
   # POST /medical_records
   # POST /medical_records.json
   def create
-    @medical_record = MedicalRecord.new(medical_record_params)
-
+    #@medical_record = MedicalRecord.new(medical_record_params)
+    @medical_record = @patient.medical_records.new(medical_record_params)
     respond_to do |format|
       if @medical_record.save
-        format.html { redirect_to @medical_record, notice: 'Medical record was successfully created.' }
+        format.html { redirect_to @patient, notice: 'Medical record was successfully created.' }
         format.json { render :show, status: :created, location: @medical_record }
       else
         format.html { render :new }
@@ -41,8 +43,9 @@ class MedicalRecordsController < ApplicationController
   # PATCH/PUT /medical_records/1.json
   def update
     respond_to do |format|
-      if @medical_record.update(medical_record_params)
-        format.html { redirect_to @medical_record, notice: 'Medical record was successfully updated.' }
+      @medical_record = MedicalRecord.find(params[:id])
+      if @medical_record.update_attributes(medical_record_params)
+        format.html { redirect_to @patient, notice: 'Medical record was successfully updated.' }
         format.json { render :show, status: :ok, location: @medical_record }
       else
         format.html { render :edit }
@@ -56,13 +59,16 @@ class MedicalRecordsController < ApplicationController
   def destroy
     @medical_record.destroy
     respond_to do |format|
-      format.html { redirect_to medical_records_url, notice: 'Medical record was successfully destroyed.' }
+      format.html { redirect_to @patient , notice: 'Medical record was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_patient
+      @patient = Patient.find(params[:patient_id])
+    end
     def set_medical_record
       @medical_record = MedicalRecord.find(params[:id])
     end

@@ -1,4 +1,4 @@
-<%= form_with(model: family_history, local: true) do |form| %>
+<%= form_with(model: [@patient,@family_history], local: true) do |form| %>
   <% if family_history.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(family_history.errors.count, "error") %> prohibited this family_history from being saved:</h2>
@@ -10,60 +10,116 @@
       </ul>
     </div>
   <% end %>
+<div class="form-group">
+    <p style="border: 2px solid black; padding:5px; width:50%;">Family History of</p>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td><%= form.label :ans, "Anesthesia Reaction" %></td>
+        <td><%= form.check_box :ans %></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+          <td><%= form.label :family_cancer, "Family Cancer" %></td>
+          <td><%= form.check_box :family_cancer %></td>
+      </tr>
 
-  <div class="field">
-    <%= form.label :ans %>
-    <%= form.check_box :ans %>
+      <tr>
+        <th scope="row"></th>
+          <td><%= form.label :family_breast_cancer, "Family Breast Cancer Experience" %></td>
+          <td><%= form.check_box :family_breast_cancer %></td>
+      </tr>
+      </tbody>
+      </table>
+</div>
+  <div class="form-group">
+      <p style="border: 2px solid black; padding:5px; width:50%;"> Bleeding Disorder</p>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td><%= form.label :family_blood_disorder, "Family Blood Disorder" %></td>
+            <td><%= form.check_box :family_blood_disorder %></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+              <td><%= form.label :family_sickle_cell, "Family Sickle Cell Disease" %></td>
+              <td><%= form.check_box :family_sickle_cell %></td>
+          </tr>
+        </tbody>
+        </table
   </div>
 
-  <div class="field">
-    <%= form.label :family_cancer %>
-    <%= form.check_box :family_cancer %>
+  <div class="form-group">
+      <p style="border: 2px solid black; padding:5px; width:50%;">Neurologic</p>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+              <td><%= form.label :neurologic_problem, "Neurologic Problems" %></td>
+              <td><%= form.check_box :neurologic_problem %></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+                <td><%= form.label :family_strok, "Family Stroke" %></td>
+                <td><%= form.check_box :family_strok %></td>
+            </tr>
+        </tbody>
+      </table>
   </div>
 
-  <div class="field">
-    <%= form.label :family_breast_cancer %>
-    <%= form.check_box :family_breast_cancer %>
+
+<div class="form-group">
+  <p style="border: 2px solid black; padding:5px; width:50%;">Cardiac</p>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+          <td><%= form.label :cardiac_disorder, "Cardiac Disorder" %></td>
+          <td><%= form.check_box :cardiac_disorder %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="field">
-    <%= form.label :family_blood_disorder %>
-    <%= form.check_box :family_blood_disorder %>
+  <div class="form-group">
+    <p style="border: 2px solid black; padding:5px; width:50%;">Respiratory</p>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+            <td><%= form.label :respiratory_disease, "Respiratory Disease" %></td>
+            <td><%= form.check_box :respiratory_disease %></td>
+          </tr>
+        </tbody>
+      </table>
   </div>
 
-  <div class="field">
-    <%= form.label :family_sickle_cell %>
-    <%= form.check_box :family_sickle_cell %>
+  <div class="form-group">
+    <p style="border: 2px solid black; padding:5px; width:50%;">GI</p>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+            <td><%= form.label :family_birth_defect, "Family Birth Defect" %></td>
+            <td><%= form.check_box :family_birth_defect %></td>
+          </tr>
+        </tbody>
+      </table>
   </div>
 
-  <div class="field">
-    <%= form.label :neurologic_problem %>
-    <%= form.check_box :neurologic_problem %>
-  </div>
-
-  <div class="field">
-    <%= form.label :family_strok %>
-    <%= form.check_box :family_strok %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cardiac_disorder %>
-    <%= form.check_box :cardiac_disorder %>
-  </div>
-
-  <div class="field">
-    <%= form.label :respiratory_disease %>
-    <%= form.check_box :respiratory_disease %>
-  </div>
-
-  <div class="field">
-    <%= form.label :family_birth_defect %>
-    <%= form.check_box :family_birth_defect %>
-  </div>
-
-  <div class="field">
-    <%= form.label :family_endocrine %>
-    <%= form.check_box :family_endocrine %>
+  <div class="form-group">
+    <p style="border: 2px solid black; padding:5px; width:50%;">Endocrine</p>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+            <td><%= form.label :family_endocrine, "Family Endocrine Disease" %></td>
+            <td><%= form.check_box :family_endocrine %></td>
+          </tr>
+        </tbody>
+        </table>
   </div>
 
   <div class="field">
@@ -72,6 +128,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create Family History Record', class:"btn btn-success" %>
   </div>
 <% end %>

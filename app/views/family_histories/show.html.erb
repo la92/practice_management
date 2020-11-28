@@ -1,64 +1,64 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Ans:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Anesthesia Reaction:</strong>
   <%= @family_history.ans %>
 </p>
 
-<p>
-  <strong>Family cancer:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Family Cancer:</strong>
   <%= @family_history.family_cancer %>
 </p>
 
-<p>
-  <strong>Family breast cancer:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Family Breast cancer:</strong>
   <%= @family_history.family_breast_cancer %>
 </p>
 
-<p>
-  <strong>Family blood disorder:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Family Blood Disorder:</strong>
   <%= @family_history.family_blood_disorder %>
 </p>
 
-<p>
-  <strong>Family sickle cell:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Family Sickle Cell Disorder:</strong>
   <%= @family_history.family_sickle_cell %>
 </p>
 
-<p>
-  <strong>Neurologic problem:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Neurologic Problem:</strong>
   <%= @family_history.neurologic_problem %>
 </p>
 
-<p>
-  <strong>Family strok:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Family Stroke:</strong>
   <%= @family_history.family_strok %>
 </p>
 
-<p>
-  <strong>Cardiac disorder:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Cardiac Disorder:</strong>
   <%= @family_history.cardiac_disorder %>
 </p>
 
-<p>
-  <strong>Respiratory disease:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Respiratory Disease:</strong>
   <%= @family_history.respiratory_disease %>
 </p>
 
-<p>
-  <strong>Family birth defect:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Family Birth Defect:</strong>
   <%= @family_history.family_birth_defect %>
 </p>
 
-<p>
-  <strong>Family endocrine:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Family Endocrine:</strong>
   <%= @family_history.family_endocrine %>
 </p>
 
-<p>
-  <strong>Patient:</strong>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
+  <strong>Patient ID:</strong>
   <%= @family_history.patient_id %>
 </p>
 
-<%= link_to 'Edit', edit_family_history_path(@family_history) %> |
-<%= link_to 'Back', family_histories_path %>
+<%= link_to 'Edit', edit_patient_family_history_path(@family_history.patient_id,@family_history), class:"btn btn-success" %> |
+<%= link_to 'Back', patient_family_history_path(@family_history.patient_id,@family_history, class:"btn btn-primary" %>

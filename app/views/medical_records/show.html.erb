@@ -1,89 +1,89 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Aspirin:</strong>
   <%= @medical_record.aspirin %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Codine:</strong>
   <%= @medical_record.codine %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Penicillin:</strong>
   <%= @medical_record.penicillin %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Local anesthesia:</strong>
   <%= @medical_record.local_anesthesia %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Acrylic:</strong>
   <%= @medical_record.acrylic %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Latex:</strong>
   <%= @medical_record.latex %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Aids:</strong>
   <%= @medical_record.aids %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Alzhimers:</strong>
   <%= @medical_record.alzhimers %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Asthma:</strong>
   <%= @medical_record.asthma %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Blood disease:</strong>
   <%= @medical_record.blood_disease %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Cancer:</strong>
   <%= @medical_record.cancer %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Chest pains:</strong>
   <%= @medical_record.chest_pains %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Diabetes:</strong>
   <%= @medical_record.diabetes %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Drug addiction:</strong>
   <%= @medical_record.drug_addiction %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Injuries:</strong>
   <%= @medical_record.injuries %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Comments:</strong>
   <%= @medical_record.comments %>
 </p>
 
-<p>
+<p style="margin:auto; border: 2px solid black; padding:10px; width:50%;">
   <strong>Patient:</strong>
   <%= @medical_record.patient_id %>
 </p>
 
-<%= link_to 'Edit', edit_medical_record_path(@medical_record) %> |
-<%= link_to 'Back', medical_records_path %>
+<%= link_to 'Edit', edit_patient_medical_record_path(@medical_record.patient_id, @medical_record), class:"btn btn-success" %> |
+<%= link_to 'Back', patient_path, class:"btn btn-primary"%>

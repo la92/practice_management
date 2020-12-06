@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :doctors
   resources :medical_records
   resources :family_histories
   resources :notes
   resources :patients
-  
+  root to: 'patients#index'
+
   resources :patients do
     resources :notes
   end

@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_doctor!, expect: [:index, :show]
   # GET /patients
   # GET /patients.json
   def index
@@ -17,7 +17,8 @@ class PatientsController < ApplicationController
 
   # GET /patients/new
   def new
-    @patient = Patient.new
+    #@patient = Patient.new
+    @patient = current_doctor.patients.build
     @notes = @patient.notes.new
     @medical_records = @patient.medical_records.new
     @family_histories = @patient.family_histories.new
@@ -30,7 +31,8 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
-    @patient = Patient.new(patient_params)
+    @patient= current_doctor.patients.build(patient_params)
+    #@patient = Patient.new(patient_params)
 
     respond_to do |format|
       if @patient.save

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_221945) do
+ActiveRecord::Schema.define(version: 2020_12_06_230333) do
 
   create_table "AA", primary_key: ["user", "account", "email"], options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "user", limit: 20, null: false
@@ -133,6 +133,18 @@ ActiveRecord::Schema.define(version: 2020_11_26_221945) do
     t.string "type", limit: 6, null: false
   end
 
+  create_table "doctors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_doctors_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
+  end
+
   create_table "eCubed", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "Event Name", limit: 100, null: false
     t.text "Description", null: false
@@ -225,6 +237,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_221945) do
     t.integer "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "doctor_id"
   end
 
   create_table "pwdReset", primary_key: "pwdResetId", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -255,10 +268,16 @@ ActiveRecord::Schema.define(version: 2020_11_26_221945) do
     t.string "type", limit: 20, default: "intercity", null: false
   end
 
-  create_table "users", primary_key: "idUsers", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.text "uidUsers", size: :tiny, null: false
-    t.text "emailUsers", size: :tiny, null: false
-    t.text "pwdUsers", size: :long, null: false
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "family_histories", "patients"

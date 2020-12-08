@@ -1,0 +1,48 @@
+current directory: /mnt/c/Users/lione/Desktop/practice_management/th-mysql-include/gems/mysql2-0.5.3/ext/mysql2
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20201207-6852-1bkunxd.rb extconf.rb
+checking for rb_absint_size()... yes
+checking for rb_absint_singlebit_p()... yes
+checking for rb_wait_for_single_fd()... yes
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/usr/bin/$(RUBY_BASE_NAME)2.7
+	--with-mysql-dir
+	--without-mysql-dir
+	--with-mysql-include
+	--without-mysql-include=${mysql-dir}/include
+	--with-mysql-lib
+	--without-mysql-lib=${mysql-dir}/lib
+	--with-mysql-config
+	--without-mysql-config
+	--with-mysqlclient-dir
+	--without-mysqlclient-dir
+	--with-mysqlclient-include
+	--without-mysqlclient-include=${mysqlclient-dir}/include
+	--with-mysqlclient-lib
+	--without-mysqlclient-lib=${mysqlclient-dir}/lib
+	--with-mysqlclientlib
+	--without-mysqlclientlib
+/usr/lib/ruby/2.7.0/mkmf.rb:1050:in `block in find_library': undefined method `split' for nil:NilClass (NoMethodError)
+	from /usr/lib/ruby/2.7.0/mkmf.rb:1050:in `collect'
+	from /usr/lib/ruby/2.7.0/mkmf.rb:1050:in `find_library'
+	from extconf.rb:87:in `<main>'
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /mnt/c/Users/lione/Desktop/practice_management/th-mysql-include/extensions/x86_64-linux/2.7.0/mysql2-0.5.3/mkmf.log
+
+extconf failed, exit code 1

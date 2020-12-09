@@ -1,1 +1,1 @@
-web: bundle exec rails server -p ${PORT:-3000}
+web: PORT=3000 yarn --cwd practice_management start
